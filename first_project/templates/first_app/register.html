@@ -1,0 +1,31 @@
+{% extends "first_app/base.html" %}
+{% block body_block %}
+
+<div class="row">
+  <div class="col-md-2">
+
+  </div>
+  <div class="col-md-8">
+    {% if registered %}
+
+      <h3>Thank you for registering!</h3>
+
+    {% else %}
+
+     <div class="row">
+       <div class="col-md-12">
+          <form class="" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            {{user_form.as_p}}
+            {{profile_form.as_p}}
+            <input type="submit" name="" value="Register">
+          </form>
+       </div>
+     </div>
+     {% endif %}
+  </div>
+  <div class="col-md-2">
+
+  </div>
+</div>
+{% endblock %}
